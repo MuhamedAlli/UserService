@@ -20,10 +20,10 @@ class AuthService
         $user = $this->authRepository->findByEmail($data['email']);
 
         if (!$user || !Hash::check($data['password'], $user->password)) {
-            return response()->json([
+            return [
                 'status' => 401,
                 'message' => 'Invalid email or password'
-            ], 400);
+            ];
         }
        
 
